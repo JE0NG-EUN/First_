@@ -1,0 +1,12 @@
+import random
+a = random.randrange(0,3)
+b = int(input("하나를 선택하세요 : 가위(0), 바위(1), 보(2): "))
+print("컴퓨터:",a,"나",b)
+if a==b:
+    print("비겼습니다.")
+elif a==(b+1):
+    print("졌습니다.")
+elif a==0and b==2:
+    print("졌습니다.")
+else:
+    print("이겼습니다")
