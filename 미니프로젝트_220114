@@ -1,0 +1,76 @@
+# 1.입력
+
+f = open("a.txt", 'r')
+a = f.read()
+aa = a.replace(',','').replace('.','')
+aaa = aa.split(' ')
+
+import collections
+counter = collections.Counter(aaa)
+print(counter.most_common(10))
+
+
+# 2.
+dic = {
+    '.-':'A','-...':'B','-.-.':'C','-..':'D','.':'E','..-.':'F',
+    '--.':'G','....':'H','..':'I','.---':'J','-.-':'K','.-..':'L',
+    '--':'M','-.':'N','---':'O','.--.':'P','--.-':'Q','.-.':'R',
+    '...':'S','-':'T','..-':'U','...-':'V','.--':'W','-..-':'X',
+    '-.--':'Y','--..':'Z'
+}
+
+dd = '.... .  ... .-.. . . .--. ...  . .- .-. .-.. -.--'
+dd = dd.split('  ')
+def mos(dd):
+    result = []
+    for i in dd:
+        for j in i.split(' '):
+            if j in dic:
+                result.append(dic[j])
+        result.append('')
+    return ' '.join(result)
+
+mos(dd)
+
+
+#3. OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오
+
+score = 0
+count = 0
+b = input("테스트케이스 개수 : ")
+a = input("퀴즈 결과 : ")
+c = b.split("\n")
+b= int(b)
+j = 0
+while j < b:
+    for i in a:
+        if i =='O':
+            count = count+1
+            score = score+count
+        else:
+            count = 0
+            score = score + count
+    j+=1
+    print(score)
+
+#4번문제
+
+a = int(input("로그에 기록된 출입 기록의 수 : "))
+print(a)
+num = []
+for i in range(a):
+    b = input().split()
+    num = num+b
+print(num)
+c = num[0::2]
+print(c)
+d ={}
+for i in c:
+    try: d[i]+=1
+    except: d[i]=1
+print(d)
+d = {key : value for key, value in d.items() if value%2!=0}
+print(d)
+e=d.keys()
+print(e)
+
